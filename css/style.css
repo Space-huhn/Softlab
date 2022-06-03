@@ -1498,6 +1498,11 @@ h6 {
   }
 }
 
+@media (max-width: 575.98px){
+.contacts-form {
+  margin: 24px 0 0 0;
+}
+}
 @media (max-width: 575.98px) {
   .contacts-call__form {
     -webkit-box-flex: 1;
