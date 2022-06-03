@@ -913,7 +913,7 @@ h6 {
 }
 
 .technology-caterory__icon {
-  background: url("../img/technology/Polygon.svg") center no-repeat;
+  background: url("../img/technology/Polygon.svg") center / contain no-repeat;
   width: 89px;
   height: 89px;
   margin-right: 24px;
@@ -977,14 +977,25 @@ h6 {
     flex-wrap: wrap;
     row-gap: 10px;
   }
-
+	
+  .technology-caterory__icon img{
+	width: 43%;
+    height: 43%;
+  }
+	
+.technology-caterory:nth-child(1),
+.technology-caterory:nth-child(3) {
+  -webkit-box-flex: 0;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
   .technology-caterory__subtitle {
     margin: 0 0 5px 0;
   }
 
-  .technology-caterory__icon {
+ .technology-caterory__icon {
     width: 11vw;
-    height: auto;
+    height: 11vw;
     margin-right: 3.5vw;
   }
 }
