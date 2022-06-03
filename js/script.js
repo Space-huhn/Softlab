@@ -1,24 +1,38 @@
 'use strict'
-let hederMenu = document.querySelector('.menu');
+let hederMenu = document.querySelector('.header-nav__menu');
 let burgerElement = document.querySelector('.header-burger');
 let bodyScrollLook = document.querySelector('body');
 let menuNavigationList = document.querySelectorAll('.nav-list__item');
 let logo = document.querySelector('.header__logo');
 let logoSvg = logo.querySelectorAll('.logo-cologr-modify');
-let language = document.querySelector('#language');
+let language = document.querySelector('.language');
 let languageArrow = language.querySelector('svg');
 let burgerMenuLine = burgerElement.querySelectorAll('span');
 let header = document.querySelector('.header');
+let headerNavigation = document.querySelector('.header-nav');
 
 function burgerMenu() {
     burgerElement.addEventListener('click', () => burgerElement.classList.toggle('active'));
     burgerElement.addEventListener('click', () => hederMenu.classList.toggle('active'));
     burgerElement.addEventListener('click', () => bodyScrollLook.classList.toggle('scroll-look'));
     burgerElement.addEventListener('click', () => header.classList.toggle('active'));
+    burgerElement.addEventListener('click', () => headerNavigation.classList.toggle('active'));
 }
 burgerMenu();
 
 language.addEventListener('click', () => language.classList.toggle('active'));
+
+// technologiIcons.forEach(element => {
+//     element.addEventListener('mouseover', () => {
+//         if (element.getAttribute('src').includes('frontend')) {
+//             let url = element.getAttribute('src');
+//             let newUrl = url.replace(/frontend/, 'frontend/on-hover');
+//             element.setAttribute("src", newUrl);
+//         }
+
+//     });
+// });
+
 
 
 function menuPaddingOnScroll() {
@@ -61,9 +75,27 @@ function dinamicAdaptiveMenu() {
             form.append(btn);
         }
     }
+
+    let lider = document.querySelector('.lider');
+    let readMore = document.querySelector('.read-more');
+    let portfolioRow = document.querySelector('.portfolio-row');
+    function readMoreCount() {
+        let viewportWidt = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        if (viewportWidt < 992) {
+            readMore.prepend(lider);
+        } else {
+            portfolioRow.append(lider);
+        }
+    }
     window.addEventListener('resize', moveElement);
+    window.addEventListener('resize', readMoreCount);
+
     if (mainScreenWidth < 992) {
         moveElement();
     }
+    if (mainScreenWidth < 992) {
+        readMoreCount();
+    }
 }
+
 dinamicAdaptiveMenu();
