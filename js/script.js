@@ -22,18 +22,22 @@ burgerMenu();
 
 language.addEventListener('click', () => language.classList.toggle('active'));
 
-// technologiIcons.forEach(element => {
-//     element.addEventListener('mouseover', () => {
-//         if (element.getAttribute('src').includes('frontend')) {
-//             let url = element.getAttribute('src');
-//             let newUrl = url.replace(/frontend/, 'frontend/on-hover');
-//             element.setAttribute("src", newUrl);
-//         }
 
-//     });
-// });
+let hederNav = document.querySelector('.header-nav');
+let menuList = document.querySelector('.header-nav__list');
+let menuListLink = menuList.querySelectorAll('.header-nav__link');
 
-
+menuListLink.forEach((element) => {
+    element.addEventListener('click', () => hederNav.classList.remove('active'));
+    element.addEventListener('click', () => burgerElement.classList.remove('active'));
+    element.addEventListener('click', () => hederMenu.classList.remove('active'));
+    element.addEventListener('click', () => header.classList.remove('active'));
+    element.addEventListener('click', () => headerNavigation.classList.remove('active'));
+    element.addEventListener('click', () => bodyScrollLook.classList.remove('scroll-look'));
+})
+//for (const element of menuList) {
+//   menuListLink.addEventListener('click', () => hederNav.classList.remove('active'));
+// }
 
 function menuPaddingOnScroll() {
     window.addEventListener('scroll', scrollFromTop);
